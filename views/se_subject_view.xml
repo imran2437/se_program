@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>                         
+        
+        <!-- Form view -->
+
+        <record id="se_action_subject_information_form_view" model="ir.ui.view">
+            <!-- <field name="name">program.form.view</field> -->
+            <field name="model">se.subject</field>
+          
+           <field name="arch" type="xml">
+                
+                  <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="course"/>
+                                <field name="subject_type"/>
+                                <field name="company"/>
+                                
+                                
+                             </group>
+                           <group>
+                                <field  name="code"/>
+                                <field name="type" />
+                                <field name="grade_weightage"/>
+                                
+                            </group>
+                        
+                        
+                         </group>
+                    </sheet>
+                        
+                 </form>
+                
+              
+            </field>
+       </record>  
+        
+       <!-- Tree view -->
+        <record id="se_action_subject_information_tree_view" model="ir.ui.view">
+            <!-- <field name="name">subject.tree.view</field> -->
+            <field name="model">se.subject</field>
+            <field name="arch" type="xml">
+                <tree string="Subject">
+                  <field name="name"/>
+                  <field  name="code"/>
+                  
+                  <field name="course"/>
+                  <field name="type" />
+                  <field name="subject_type"/>
+                  <field name="company"/>
+                  <field name="grade_weightage"/>
+                                
+                </tree>
+
+            </field>
+        </record>
+        <!-- kanban view -->
+        <record id="se_action_subject_information_kanban" model="ir.ui.view">
+            <!-- <field name="name">program.kanban.view</field> -->
+            <field name="model">se.subject</field>
+            <field name="arch" type="xml">
+                <kanban string="Subject">
+                    <field name="name"/>
+                  <field  name="code"/>
+                 
+                  <field name="course"/>
+                  <field name="type" />
+                  <field name="subject_type"/>
+                  <field name="company"/>
+                  <field name="grade_weightage"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong><field name="name"/></strong>
+                                    <div>
+                                        <field name="code"/>
+                                    </div>
+                                    
+                                    <div>
+                                        <field name="course"/>
+                                    </div>
+                                    <div>
+                                        <field name="type"/>
+                                    </div>
+                                    <div>
+                                        <field name="subject_type"/>
+                                    </div>
+                                    <div>
+                                        <field name="company"/>
+                                    </div>
+                                    <div>
+                                        <field name="grade_weightage"/>
+                                    </div>
+          
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+
+
+        </record>
+        <!-- action -->
+        <record id="se_action_subject_information" model="ir.actions.act_window">
+            <field name="name">Subject Dashboard</field>
+            <field name="res_model">se.subject</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Program.
+                </p>
+            </field>
+        </record>
+    </data>
+ </odoo>
+
+    

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>                         
+        
+        
+        <!-- Form view -->
+
+        <record id="se_action_program_information_form_view" model="ir.ui.view">
+            <!-- <field name="name">program.form.view</field> -->
+            <field name="model">se.program</field>
+          
+           <field name="arch" type="xml">
+                
+                  <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field  name="code"/>
+                                <field name="parent_program" />
+                                <field name="program_no"/>
+                                <!-- <field name="name" eval="True" /> -->
+                             </group>
+                           <group>
+                                <field name="minimum_Unit_Load"/>
+                                <field name="maximum_Unit_Load"/>
+                                <field name="evaluation_Type"/>
+                                <field name="reg_fee"/>
+                            </group>
+                        
+                        
+                         </group>
+                    
+    
+                     <h2 >
+                     UGC Student ID Setup 
+                      </h2>
+                      <group>
+                        <group>
+                            <field name="UGC_Program_Cluster"/>  
+                        </group>
+                        <group>
+                            <field name="UGC_Program_Subject"/>
+                         </group>
+                          
+                       </group>
+          
+                    
+                        <h2 >
+                            Admission Eligibility                      
+                         </h2>
+                        <group>
+                          <field name="field_name"/>
+                        </group>
+                        <h2 style="color: blue;">
+                            Subjects
+                        </h2>
+                        <field name="subjects_ids"/>
+                    </sheet>
+                        
+                 </form>
+                
+              
+            </field>
+       </record>  
+        
+       <!-- Tree view -->
+        <record id="se_action_program_information_tree_view" model="ir.ui.view">
+            <field name="name">program.tree.view</field>
+            <field name="model">se.program</field>
+            <field name="arch" type="xml">
+                <tree string="Program">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="parent_program"/>
+                    <field name="program_no"/>
+                    <field name="minimum_Unit_Load"/>
+                    <field name="maximum_Unit_Load"/>
+                    <field name="evaluation_Type"/>
+                    <field name="reg_fee"/>
+                    <field name="UGC_Program_Cluster"/>
+                    <field name="UGC_Program_Subject"/>
+                    <field name="field_name"/>
+                    <field name="subjects_ids"/>
+                </tree>
+
+            </field>
+        </record>
+        <!-- kanban view -->
+        <record id="se_action_program_information_kanban" model="ir.ui.view">
+            <field name="name">program.kanban.view</field>
+            <field name="model">se.program</field>
+            <field name="arch" type="xml">
+                <kanban string="Program">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="parent_program"/>
+                    <field name="program_no"/>
+                    <field name="minimum_Unit_Load"/>
+                    <field name="maximum_Unit_Load"/>
+                    <field name="evaluation_Type"/>
+                    <field name="reg_fee"/>
+                    <field name="UGC_Program_Cluster"/>
+                    <field name="UGC_Program_Subject"/>
+                    <field name="field_name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong><field name="name"/></strong>
+                                    <div>
+                                        <field name="code"/>
+                                    </div>
+                                    <div>
+                                        <field name="parent_program"/>
+                                    </div>
+                                    <div>
+                                        <field name="program_no"/>
+                                    </div>
+                                    <div>
+                                        <field name="minimum_Unit_Load"/>
+                                    </div>
+                                    <div>
+                                        <field name="maximum_Unit_Load"/>
+                                    </div>
+                                    <div>
+                                        <field name="evaluation_Type"/>
+                                    </div>
+                                    <div>
+                                        <field name="reg_fee"/>
+                                    </div>
+                                    <div>
+                                        <field name="UGC_Program_Cluster"/>
+                                    </div>
+                                    <div>
+                                        <field name="UGC_Program_Subject"/>
+                                    </div>
+                                    <div>
+                                        <field name="field_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+
+
+        </record>
+        <!-- action -->
+        <record id="se_action_program_information" model="ir.actions.act_window">
+            <field name="name">Program Dashboard</field>
+            <field name="res_model">se.program</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Program.
+                </p>
+            </field>
+        </record>
+        
+        <!-- tree view for add program -->
+        <record id="action_student_informationp_tree" model="ir.ui.view">
+            <field name="name">program.tree.view</field>
+            <field name="model">program.listp</field>
+            <field name="arch" type="xml">
+                <tree string="Program Name">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="parent_program"/>
+                    
+                </tree>
+
+            </field>
+
+           
+        </record>
+        <!-- form view for add program -->
+        <record id="action_student_informationp_view" model="ir.ui.view">
+            <!-- <field name="name">program.form.view</field> -->
+            <field name="model">program.listp</field>
+          
+           <field name="arch" type="xml">
+                
+                  <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field  name="code"/>
+                                <field name="parent_program" />
+                                
+                             </group>
+                           <group>
+                                
+                            </group>
+                        
+                        
+                         </group>
+                    
+    
+                     
+          
+                    
+                        
+                    </sheet>
+                        
+                 </form>
+                
+              
+            </field>
+
+        </record>
+
+        <!-- action for add program -->
+       <record id="action_student_informationp" model="ir.actions.act_window">
+            <field name="name"> Add Program</field>
+            <field name="res_model">program.listp</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to Add a new Program.
+                </p>
+            </field>
+        </record>
+        
+
+    </data>
+    
+    
+</odoo>
